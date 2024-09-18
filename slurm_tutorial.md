@@ -142,25 +142,25 @@ output_dir=/scratch/dir_name/
 mkdir -p $output_dir
 /usr/bin/time -v python my_program.py > $output_dir/output.csv
 ```
-- **Detailed Explanation**:
+**Detailed Explanation**:
 
 ```bash
 output_dir=/scratch/dir_name/
 ```
-    - **Defines Output Directory**: Sets `output_dir` as the path where the output files will be stored. The directory is located in the `/scratch/`, which has the largest available memory, making it suitable for handling large outputs or temporary data
+- **Defines Output Directory**: Sets `output_dir` as the path where the output files will be stored. The directory is located in the `/scratch/`, which has the largest available memory, making it suitable for handling large outputs or temporary data
 
 ```bash
 mkdir -p $output_dir
 ```
-    - **Creates Directory**: Ensures that the directory specified by `output_dir` exists. The `-p` option makes the command create any necessary parent directories as well, without throwing an error if the directory already exists.
+- **Creates Directory**: Ensures that the directory specified by `output_dir` exists. The `-p` option makes the command create any necessary parent directories as well, without throwing an error if the directory already exists.
 
 ```bash
 /usr/bin/time -v python my_program.py > $output_dir/output.csv
 ```
-    - **Executes Program**: 
-        - Runs the Python script `my_program.py`.   
-        - Uses `/usr/bin/time -v` to track and report detailed resource usage (like memory and CPU time).
-        - Redirects the script’s output to `output.csv` in the specified `output_dir`.
+- **Executes Program**: 
+   - Runs the Python script `my_program.py`.   
+   - Uses `/usr/bin/time -v` to track and report detailed resource usage (like memory and CPU time).
+   - Redirects the script’s output to `output.csv` in the specified `output_dir`.
 
 
 ```bash
