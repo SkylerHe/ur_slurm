@@ -8,7 +8,7 @@
 
 #SBATCH --partition=basic
 #SBATCH --mem=24000
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 
 # Print the simulation start date/time
 date

@@ -8,7 +8,7 @@
 
 #SBATCH --partition=sci
 #SBATCH --gres=gpu:tesla_a40:1
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=4
 
 # Print the simulation start date/time
 date

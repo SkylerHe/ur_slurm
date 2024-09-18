@@ -57,10 +57,10 @@
     - **Usage**: Estimate the memory needs of your job. For instance, if your program processes large datasets, you may need more memory. Specifying too little memory can cause your job to be killed if it exceeds the allocation, while specifying too much can waste resources. In this example, 24,000 MB (or 24 GB) of memory is allocated.
 
 
-- **`#SBATCH --cpus-per-task=8`**:
+- **`#SBATCH --cpus-per-task=4`**:
    - **Purpose**: This sets the number of CPU cores to allocate per task. It is particularly important for multi-threaded applications, where a single task can utilize multiple cores to perform parallel processing.
    - **Usage**: 
-     - For CPU-only tasks: Set this value to match the number of cores your application can efficiently use. In this example, 8 cores are allocated to each task.
+     - For CPU-only tasks: Set this value to match the number of cores your application can efficiently use. In most cases, 4 CPUs is the correct allocation
      - For GPU workloads: Typically, you should request no more than **4 CPU** cores per task, as the majority of the workload will be handled by the GPU, and additional CPU cores are unlikely to improve performance.
      - For single-threaded applications: This would typically be set to 1.
 
