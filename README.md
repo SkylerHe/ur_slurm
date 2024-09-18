@@ -6,6 +6,31 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
 
 [SLURM](https://slurm.schedmd.com/) is a powerful and flexible job scheduling system used for managing and scheduling workloads on large-scale compute clusters. This tutorial will cover the basics of submitting jobs, monitoring their progress, and managing resources effectively.
 
+## Contents
+
+- **[SLURM Tutorial](slurm_tutorial.md)**: 
+  - This tutorial provides detailed explanations on how to write and structure SLURM job scripts. It covers various SBATCH directives, job execution commands, and best practices for resource allocation.
+  - The tutorial references the example SLURM files included in this repository, explaining each part of the scripts in detail to help you tailor them to your specific needs.
+
+- **[CPU Example SLURM](cpu.example.slurm)**:
+  - A clean, final version of a SLURM script designed for CPU-based tasks. This file can be used as a template for jobs that do not require GPU resources.
+
+- **[GPU Example SLURM](gpu.example.slurm)**:
+  - A clean, final version of a SLURM script designed for GPU-based tasks. This script includes the necessary directives to request GPU resources and is ideal for jobs that involve machine learning, deep learning, or other GPU-accelerated computations.
+
+## How to Use
+
+1. **Start with the Examples**:
+   - Use `cpu.example.slurm` or `gpu.example.slurm` as a base template depending on whether your job requires CPU or GPU resources.
+   - These example files are ready to be customized with your specific job details.
+
+2. **Refer to the Tutorial**:
+   - Consult [SLURM Tutorial](slurm_tutorial.md) for a detailed breakdown of each section within the example SLURM files. The tutorial explains the purpose and function of each SBATCH directive and command, helping you understand how to optimize your SLURM scripts.
+
+3. **Customize Your SLURM Script**:
+   - Modify the example SLURM scripts with your job-specific parameters, such as job name, time limits, partition selection, and resource requests. Use the tutorial to ensure you are making informed decisions about each aspect of your script.
+
+
 ## Getting Started
 - **Login**: Access the [UR computing cluster](https://data.richmond.edu/About-HPC-at-UR/index.html) by running:
   ```bash
