@@ -64,7 +64,7 @@
      - For GPU workloads: Typically, you should request no more than **4 CPU** cores per task, as the majority of the workload will be handled by the GPU, and additional CPU cores are unlikely to improve performance.
      - For single-threaded applications: This would typically be set to 1.
 
-- **#SBATCH --gres=gpu:tesla_a40:1**
+- **`#SBATCH --gres=gpu:tesla_a40:1`**
     - **GPU Resource Request**: Requests 1 Tesla A40 GPU for the job. The `--gres` (Generic Resources) option is used to allocate specific hardware resources, in this case, a GPU. The format is `gpu:<type>:<count>`, where `tesla_a40` specifies the GPU model and `1` indicates the number of GPUs required.
     - **Usage**:
         ```bash
