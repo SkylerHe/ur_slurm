@@ -105,6 +105,6 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
 1. **Should you launch the SLURM job from Spydur (the head node) specifying partition in the script?**
    - **Yes**, the correct method is to submit your job through SLURM from the head node (`spydur`), specifying the partition name in your SLURM script (e.g., using the `--partition=basic` option in your SLURM script). This ensures your job is queued properly and given access to resources in a controlled manner 
 ## Getting Help
-George Flanagin: [gflanagi@richmond.edu](mailto:gflanagi@richmond.edu)
-João Tonini: [jtonini@richmond.edu](mailto:jtonini@richmond.edu)
-Skyler He: [skyler.he@richmond.edu](mailto:skyler.he@richmond.edu)
++ George Flanagin: [gflanagi@richmond.edu](mailto:gflanagi@richmond.edu)
++ João Tonini: [jtonini@richmond.edu](mailto:jtonini@richmond.edu)
++ Skyler He: [skyler.he@richmond.edu](mailto:skyler.he@richmond.edu)
