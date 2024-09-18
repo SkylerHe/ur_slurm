@@ -11,7 +11,7 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
   ```bash
   ssh netid@spydur
   ```
-  Use your Richmond password when prompted.
+  Use your **Richmond password** when prompted.
     - Off-campus: Connect via [VPN](https://spidertechnet.richmond.edu/TDClient/1955/Portal/KB/ArticleDet?ID=125025)
 
 ## Basic SLURM commands
@@ -19,7 +19,7 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
 ### Job Submission
 - **`sbatch`**: Submit a batch job (non-interactive).
     ```bash
-    sbatch job_script.sh
+    sbatch job_script.slurm
     ```
 
 ### Job Monitoring
