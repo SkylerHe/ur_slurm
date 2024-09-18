@@ -64,6 +64,20 @@
      - For GPU workloads: Typically, you should request no more than **4 CPU** cores per task, as the majority of the workload will be handled by the GPU, and additional CPU cores are unlikely to improve performance.
      - For single-threaded applications: This would typically be set to 1.
 
+- **#SBATCH --gres=gpu:tesla_a40:1**
+    - **GPU Resource Request**: Requests 1 Tesla A40 GPU for the job. The `--gres` (Generic Resources) option is used to allocate specific hardware resources, in this case, a GPU. The format is `gpu:<type>:<count>`, where `tesla_a40` specifies the GPU model and `1` indicates the number of GPUs required.
+    - **Usage**:
+        ```bash
+        # ML: One node with two A100 GPUs. 
+        SBATCH --partition=ml
+        SBATCH --gres=gpu:a100:1  # Request 1 A100 GPU
+
+        # Sci: The two nodes with eight A40 GPUs each.
+        SBATCH --partition=sci
+        SBATCH --gres=gpu:tesla_a40:2  # Request 2 A40 GPUs
+        ```
+    - **Note**: This directive is specific to GPU jobs and is **not needed** in a CPU-only SLURM script. If you are running a job that does not require a GPU, you can omit this line.
+
 - **`#SBATCH --account=cparish`**:
   - **Purpose**: Specifies the account under which the job is charged. This is used for reporting and statistics, especially when users are associated with multiple faculty sponsors.
   - **Usage**: Replace `cparish` with your own NetID (e.g., `--account=your_netid`) to ensure the job is correctly attributed to your account or the faculty sponsor you're working under.
@@ -75,7 +89,7 @@
     - **`%x`**: This placeholder is replaced by the job name specified in the `#SBATCH --job-name` directive. If no job name is specified, it defaults to the script name.
     - **`%j`**: This placeholder is replaced by the job ID, a unique identifier assigned by SLURM when the job is submitted.
   - **Default**: If not specified, SLURM saves output to `slurm-JOBID.out`.
-  - **Usage**: The content of the output file is determined by the commands executed in the script after the `#SBATCH` directives.[Job Execution Commands](#job-execution-commands)
+  - **Usage**: The content of the output file is determined by the commands executed in the script after the `#SBATCH` directives. [Job Execution Commands](#job-execution-commands)
   
 
 
@@ -133,20 +147,20 @@ mkdir -p $output_dir
 ```bash
 output_dir=/scratch/dir_name/
 ```
-  - **Defines Output Directory**: Sets `output_dir` as the path where the output files will be stored. The directory is located in the `/scratch/`, which has the largest available memory, making it suitable for handling large outputs or temporary data
+    - **Defines Output Directory**: Sets `output_dir` as the path where the output files will be stored. The directory is located in the `/scratch/`, which has the largest available memory, making it suitable for handling large outputs or temporary data
 
 ```bash
 mkdir -p $output_dir
 ```
-  - **Creates Directory**: Ensures that the directory specified by `output_dir` exists. The `-p` option makes the command create any necessary parent directories as well, without throwing an error if the directory already exists.
+    - **Creates Directory**: Ensures that the directory specified by `output_dir` exists. The `-p` option makes the command create any necessary parent directories as well, without throwing an error if the directory already exists.
 
 ```bash
 /usr/bin/time -v python my_program.py > $output_dir/output.csv
 ```
-  - **Executes Program**: 
-   - Runs the Python script `my_program.py`.
-   - Uses `/usr/bin/time -v` to track and report detailed resource usage (like memory and CPU time).
-   - Redirects the script’s output to `output.csv` in the specified `output_dir`.
+    - **Executes Program**: 
+        - Runs the Python script `my_program.py`.   
+        - Uses `/usr/bin/time -v` to track and report detailed resource usage (like memory and CPU time).
+        - Redirects the script’s output to `output.csv` in the specified `output_dir`.
 
 
 ```bash
