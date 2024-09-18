@@ -6,49 +6,77 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
 
 [SLURM](https://slurm.schedmd.com/) is a powerful and flexible job scheduling system used for managing and scheduling workloads on large-scale compute clusters. This tutorial will cover the basics of submitting jobs, monitoring their progress, and managing resources effectively.
 
-## Contents
+## Getting Started
+- **Login**: Access the [UR computing cluster](https://data.richmond.edu/About-HPC-at-UR/index.html) by running:
+  ```bash
+  ssh netid@spydur
+  ```
+  Use your Richmond password when prompted.
+    - Off-campus: Connect via [VPN](https://spidertechnet.richmond.edu/TDClient/1955/Portal/KB/ArticleDet?ID=125025)
 
-1. **Introduction to SLURM**: 
-   - Overview of SLURM and its role in managing computing resources.
-   - Key concepts: jobs, nodes, partitions, and queues.
+## Basic SLURM commands
 
-2. **Getting Started**:
-   - Logging into the UR computing cluster.
-      - Off-campus please connect [VPN](https://spidertechnet.richmond.edu/TDClient/1955/Portal/KB/ArticleDet?ID=125025)
-   - Basic SLURM commands (e.g., `srun`, `sbatch`, `squeue`, `scancel`).
+### Job Submission
+- **`sbatch`**: Submit a batch job (non-interactive).
+    ```bash
+    sbatch job_script.sh
+    ```
 
-3. **Submitting Jobs**:
-   - How to write a SLURM job script.
-   - Submitting a job using `sbatch`.
-   - Example job scripts for different types of tasks (e.g., serial, parallel, GPU jobs).
+### Job Monitoring
 
-4. **Monitoring Jobs**:
-   - Checking job status with `squeue`.
-   - Viewing job details with `scontrol`.
-   - Accessing job history with `sacct`.
+- **`squeue`**: View the status of jobs in the queue.
+  ```bash
+  squeue
+  squeue -j <job_id>
+  ```
 
-5. **Managing Resources**:
-   - Specifying resources (e.g., CPUs, memory) in job scripts.
-   - Understanding SLURM partitions and how to select them.
+- **`scontrol`**: Display detailed information about jobs, nodes, and partitions.
+  ```bash
+  scontrol show job <job_id>
+  ```
 
-6. **Advanced SLURM Usage**:
-   - Job dependencies.
-   - Array jobs.
-   - Interactive jobs with `srun`.
+- **`sacct`**: Display historical job accounting data.
+  ```bash
+  sacct -j <job_id>
+  ```
 
-## Prerequisites
+### Job Management
 
-- Basic familiarity with the Linux command line.
-- An account on the University of Richmond's computing cluster.
+- **`scancel`**: Cancel a job.
+  ```bash
+  scancel <job_id>
+  ```
+
+### Node and Partition Information
+
+- **`sinfo`**: View the status of nodes and partitions.
+  ```bash
+  sinfo
+  sinfo -N -l
+  ```
+
+### Resource Allocation
+
+- **`salloc`**: Allocate resources for an interactive job.
+  ```bash
+  salloc --nodes=2 --ntasks-per-node=4
+  ```
+
+### SLURM Help
+
+- **`man`**: Display the manual page for any SLURM command.
+  ```bash
+  man sbatch
+  man srun
+  ```
+
+- **`--help`**: Display help information for a specific SLURM command.
+  ```bash
+  srun --help
+  sbatch --help
+  ```
+
 
 ## Getting Help
 
-If you run into any issues or have questions, please reach out to the IT helpdesk or consult the official SLURM documentation.
-
-## Contributing
-
-If you have suggestions or would like to contribute to this tutorial, please contact the tutorial maintainers.
-
-## License
-
-This tutorial is licensed under the MIT License.
+Skyler He: [skyler.he@richmond.edu](mailto:skyler.he@richmond.edu)
