@@ -108,7 +108,8 @@ echo "SLURM_NODELIST=$SLURM_NODELIST"
 # Return the context/PWD to the directory where *this* file is located.
 cd $SLURM_SUBMIT_DIR
 ```
-- **Purpose**: Ensures that the script continues execution from the directory where it was submitted. This is important if your job relies on files or scripts in that directory.
+- **Purpose**: Ensures that the script continues execution from the directory where it was submitted. 
+    - `$SLURM_SUBMIT_DIR` is an environment variable automatically set by SLURM, which contains the path to the directory from which the job was submitted. This is important if your job relies on files or scripts in that directory.
 
 ```bash
 # Load the necessary program libraries
@@ -117,13 +118,39 @@ cd $SLURM_SUBMIT_DIR
 - **Purpose**: Placeholder for loading any required software modules or libraries. Uncomment and modify this line if your job requires specific modules to be loaded.
 
 
-``bash
-# Run jobs
-# ./my_program
-```
-- **Purpose**: Placeholder for executing the main program or script for the job. Replace `./my_program` with the actual command that runs your job.
+### Actual Program Execution
+
+- **Purpose**: This section of the script is where the actual execution of your program or job takes place. 
 
 ```bash
+# Run jobs
+output_dir=/scratch/dir_name/
+mkdir -p $output_dir
+/usr/bin/time -v python my_program.py > $output_dir/output.csv
+```
+- **Detailed Explanation**:
+
+```bash
+output_dir=/scratch/dir_name/
+```
+  - **Defines Output Directory**: Sets `output_dir` as the path where the output files will be stored. The directory is located in the `/scratch/`, which has the largest available memory, making it suitable for handling large outputs or temporary data
+
+```bash
+mkdir -p $output_dir
+```
+  - **Creates Directory**: Ensures that the directory specified by `output_dir` exists. The `-p` option makes the command create any necessary parent directories as well, without throwing an error if the directory already exists.
+
+```bash
+/usr/bin/time -v python my_program.py > $output_dir/output.csv
+```
+  - **Executes Program**: 
+   - Runs the Python script `my_program.py`.
+   - Uses `/usr/bin/time -v` to track and report detailed resource usage (like memory and CPU time).
+   - Redirects the script’s output to `output.csv` in the specified `output_dir`.
+
+
+```bash
+
 # Print the simulation end date/time
 date
 ```
