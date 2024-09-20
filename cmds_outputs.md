@@ -1,5 +1,10 @@
 # SLURM Commands with Expected Outputs and Explanations
 
+## Outline
+1. [`sinfo`](#sinfo-view-the-status-of-paritions)
+2. [`squeue`](#squeue-view-the-status-of-jobs-in-the-queue)
+3. [`sbatch`](#sbatch-sbumit-a-batch-job)
+
 ## `sinfo`: View the status of partitions
 
 ```bash
@@ -35,12 +40,15 @@ sci                    52      384000  gpu:tesla_a40:8     infinite      2   idl
 - **GRES**: Lists any specialized resources like GPUs available in the partition.
 - **TIMELIMIT**: Shows the time limit for running jobs in the partition.
 - **NODES**: Shows how many nodes are part of the partition.
-    - **STATE**: Displays the current state of the nodes.
+- **STATE**: Displays the current state of the nodes.
 
     - **mix**: Node is partially allocated, with some resources available for jobs.
     - **idle**: Node is completely free and available for job scheduling.
     - **alloc**: Node is fully allocated with no available resources for additional jobs.
     - **drain**: Node is being taken offline for maintenance and will not accept new jobs.
+
+
+
 
 ## `squeue`: View the status of jobs in the queue.
 ### Example Output:
@@ -74,3 +82,11 @@ sci                    52      384000  gpu:tesla_a40:8     infinite      2   idl
 - **NODES**: The number of nodes allocated to this job.
 - **NODELIST(REASON)**: The specific nodes that the job is running on, or the reason the job is in a certain state (e.g., pending because of lack of resources).
 
+
+## `sbatch`: Submit a batch job
+```bash
+$ sbatch job_script.slurm
+Submitted batch job 133934
+```
+This command submits a batch job using the SLURM script file `job_script.slurm`, and the job is assigned the ID `133934`
+Note: please remember the job ID for furture use like canceling and controling the job
