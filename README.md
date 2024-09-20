@@ -77,7 +77,6 @@ Welcome to the University of Richmond's SLURM Tutorial! This guide is designed t
 - **`sinfo`**: View the status of nodes and partitions.
   ```bash
   sinfo
-  sinfo -N -l
   ```
 
 ### Resource Allocation
