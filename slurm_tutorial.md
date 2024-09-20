@@ -70,11 +70,11 @@
         ```bash
         # ML: One node with two A100 GPUs. 
         #SBATCH --partition=ml
-        #SBATCH --gres=gpu:a100:1  # Request 1 A100 GPU
+        #SBATCH --gres=gpu:tesla_a100:2  # Request 2 A100 GPU
 
         # Sci: The two nodes with eight A40 GPUs each.
         #SBATCH --partition=sci
-        #SBATCH --gres=gpu:tesla_a40:2  # Request 2 A40 GPUs
+        #SBATCH --gres=gpu:tesla_a40:8  # Request 8 A40 GPUs
         ```
     - **Note**: This directive is specific to GPU jobs and is **not needed** in a CPU-only SLURM script. If you are running a job that does not require a GPU, you can omit this line.
 
