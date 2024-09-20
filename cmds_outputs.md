@@ -88,5 +88,5 @@ sci                    52      384000  gpu:tesla_a40:8     infinite      2   idl
 $ sbatch job_script.slurm
 Submitted batch job 133934
 ```
-This command submits a batch job using the SLURM script file `job_script.slurm`, and the job is assigned the ID `133934`
-Note: please remember the job ID for furture use like canceling and controling the job
+- This command submits a batch job using the SLURM script file `job_script.slurm`, and the job is assigned the ID `133934`
+- Note: please remember the job ID for furture use like canceling and controling the job
